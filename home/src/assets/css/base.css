@@ -1,0 +1,146 @@
+html, body {
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0;
+    margin: 0;
+}
+
+div {
+    box-sizing: border-box;
+}
+
+a {
+    font-size: 12px;
+    cursor: pointer;
+    color: blue;
+    text-decoration: none;
+}
+
+a:link {
+    color: blue;
+    text-decoration: none;
+}
+
+a:active{
+    color: red;
+    text-decoration: none;
+}
+
+a:visited {
+    color: purple;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+.fu {
+    height: 100%;
+    width: 100%;
+}
+
+.fw {
+    width: 100%;
+}
+
+.fh {
+    height: 100%;
+}
+
+.jx-body {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+}
+.jx-bg{
+    background-color: #eeeeee
+}
+.jx-header {
+    width: 100%;
+}
+
+.jx-breadcrumb {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    color: #606266;
+    cursor: text;
+    line-height: 20px;
+}
+
+.jx-context {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.jx-box {
+    display: flex;
+    overflow: hidden;
+    min-width: 0;
+}
+.jx-box-wrap{
+    flex-wrap:wrap
+}
+.jx-box-column {
+    display: flex;
+    overflow: hidden;
+    min-width: 0;
+    flex-direction: column;
+}
+
+.jx-flex1 {
+    flex: 1;
+    overflow: hidden;
+}
+
+.jx-card {
+    text-align: left;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.jx-box-shadow {
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+}
+
+.jx-p10 {
+    padding: 10px;
+}
+
+.jx-font-15 {
+    color: #555;
+    font-size: 15px;
+}
+.jx-font-14 {
+    color: #555;
+    font-size: 14px;
+}
+.jx-font-12 {
+    color: #555;
+    font-size: 12px;
+}
+.jx-tr {
+    text-align: right;
+}
+
+.jx-tc {
+    text-align: center;
+}
+
+.jx-tl {
+    text-align: left;
+}
+
+.jx-test-over-hid {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

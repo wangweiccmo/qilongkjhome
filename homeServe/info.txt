@@ -1,0 +1,1 @@
+sequelize-auto -o "./schema" -d qilong -h www.qilongkj.com -u user01 -p 3306 -x 123456 -e mysql
