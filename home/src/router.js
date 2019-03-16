@@ -9,6 +9,7 @@ const BusinessCulture = () => import(/* webpackChunkName: "group-enrollment" */ 
 const Solution = () => import(/* webpackChunkName: "group-enrollment" */ './views/Solution.vue');
 const Case = () => import(/* webpackChunkName: "group-enrollment" */ './views/Case.vue');
 const Recruit = () => import(/* webpackChunkName: "group-enrollment" */ './views/Recruit.vue');
+const NewsDetail = () => import(/* webpackChunkName: "group-enrollment" */ './views/NewsDetail.vue');
 Vue.use(Router);
 
 export default new Router({
@@ -18,6 +19,11 @@ export default new Router({
             path: "/",
             name: "home",
             component: Home
+        },
+        {
+            path: "/newsDetail",
+            name: "NewsDetail",
+            component: NewsDetail
         },
         {
             path: "/CompanyProfile",

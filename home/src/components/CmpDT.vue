@@ -6,13 +6,13 @@
                 <el-carousel-item  >
                     <img class="fu" src="../assets/img/dt/dt1.jpg">
                 </el-carousel-item>
-                <el-carousel-item  :key="item">
+                <el-carousel-item >
                     <img class="fu" src="../assets/img/dt/dt2.png">
                 </el-carousel-item>
-                <el-carousel-item  :key="item">
+                <el-carousel-item >
                     <img class="fu" src="../assets/img/dt/dt3.jpg">
                 </el-carousel-item>
-                <el-carousel-item  :key="item">
+                <el-carousel-item >
                     <img class="fu" src="../assets/img/dt/dt4.jpg">
                 </el-carousel-item>
             </el-carousel>
