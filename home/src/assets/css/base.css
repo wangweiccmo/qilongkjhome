@@ -48,7 +48,9 @@ a:hover {
 .fh {
     height: 100%;
 }
-
+.jx-pointer{
+    cursor:pointer;
+}
 .jx-body {
     height: 100%;
     width: 100%;
@@ -121,6 +123,10 @@ a:hover {
 .jx-font-14 {
     color: #555;
     font-size: 14px;
+}
+.jx-font-20 {
+    color: #555;
+    font-size: 20px;
 }
 .jx-font-12 {
     color: #555;

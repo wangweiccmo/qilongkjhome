@@ -27,6 +27,17 @@ router.post('/all', async function (ctx, next) {
     }
 })
 
+router.post('/allByMode/:id', async function (ctx, next) {
+    let id = ctx.params.id;
+    const ret = await newsOnlyModel.allByMode(id);
+    ctx.body = {
+        success: false,
+        code: 0,
+        ret: ret
+    }
+})
+
+
 router.post('/allByPage', async function (ctx, next) {
     let page = ctx.request.body.page;
     let pageSize = ctx.request.body.pageSize;

@@ -83,7 +83,8 @@ export default {
 
         },
         init(){
-            this.$http.post(news.all,null,this).then((data)=>{
+
+            this.$http.post(news.allByMode,null,this).then((data)=>{
               this.treeList = data.ret;
             })
 

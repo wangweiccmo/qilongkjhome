@@ -8,11 +8,7 @@
         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
 
           <el-menu-item index="/">首页</el-menu-item>
-          <el-submenu index="2">
-            <template slot="title">公司简介</template>
-            <el-menu-item index="/CompanyProfile">公司概况</el-menu-item>
-            <el-menu-item index="/BusinessCulture">企业文化</el-menu-item>
-          </el-submenu>
+          <el-menu-item index="/CompanyProfile">公司简介</el-menu-item>
           <el-menu-item index="/Solution">解决方案</el-menu-item>
           <el-menu-item index="/Case">典型案列</el-menu-item>
           <el-menu-item index="/Recruit">招纳贤士</el-menu-item>

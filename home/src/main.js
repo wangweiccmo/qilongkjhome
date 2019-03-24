@@ -12,8 +12,11 @@ import {
     CarouselItem,
     Tabs,
     TabPane,
+    Breadcrumb,
+    BreadcrumbItem,
 } from 'element-ui';
-
+Vue.use(Breadcrumb)
+Vue.use(BreadcrumbItem)
 Vue.use(Button)
 Vue.use(Select)
 Vue.use(Menu)
