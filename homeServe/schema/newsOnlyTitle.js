@@ -12,6 +12,18 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING(255),
       allowNull: true
     },
+      laiyuan: {
+          type: DataTypes.STRING(255),
+          allowNull: true
+      },
+      info: {
+          type: DataTypes.STRING(255),
+          allowNull: true
+      },
+      img: {
+          type: DataTypes.STRING(255),
+          allowNull: true
+      },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: true

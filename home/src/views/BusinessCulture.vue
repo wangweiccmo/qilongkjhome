@@ -1,7 +1,7 @@
 <template>
-    <div class="fu home-body">
-        <BaseImgHeader src="/puimg/gsjj.png"></BaseImgHeader>
-        <div style="display: inline-block;width: 1100px">
+    <div class="fu jx-bg-color">
+        <BaseImgHeader src="/img/gsjj.jpg"></BaseImgHeader>
+        <div style="margin: 0 auto;width: 1100px;min-height:calc(100% - 338px) ">
             <div style="width: 100%" class="jx-box">
                 <div style="width: 200px;height: 100%">
                     <el-menu
@@ -36,16 +36,15 @@
                 </div>
             </div>
         </div>
-
+        <JxFooder></JxFooder>
     </div>
 </template>
 
 <script>
-    import BaseImgHeader from "_cmp/ui/BaseImgHeader"
 
     export default {
         name: "BusinessCulture",
-        components: {BaseImgHeader},
+        components: {},
         data() {
             return {
                 menuActive:'/CompanyProfile'
@@ -60,9 +59,6 @@
 </script>
 
 <style scoped>
-    .home-body{
-        text-align: center;
-        background-color: beige;
-    }
+
 
 </style>

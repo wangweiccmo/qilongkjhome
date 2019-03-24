@@ -27,9 +27,9 @@ router.post('/all', async function (ctx, next) {
     }
 })
 
-router.post('/allByMode/:id', async function (ctx, next) {
-    let id = ctx.params.id;
-    const ret = await newsOnlyModel.allByMode(id);
+router.post('/allByMode/:mode', async function (ctx, next) {
+    let mode = ctx.params.mode;
+    const ret = await newsOnlyModel.allByMode(mode);
     ctx.body = {
         success: false,
         code: 0,

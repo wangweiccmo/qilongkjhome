@@ -1,15 +1,6 @@
 <template>
-    <div class="fu" style="text-align: center;background-color: #f1f5f5;overflow-y: auto;">
-        <div style="height: 210px;background-color: yellow">
-            <img src="../assets/img/zxdt_banner.jpg">
-        </div>
-        <div style="width: 1000px;display: inline-block;height: 40px;padding-top: 12px;">
-
-            <el-breadcrumb style="width: 1000px;font-size: 18px" separator="/">
-                <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                <el-breadcrumb-item><a style="font-size: 18px" href="/">最新动态</a></el-breadcrumb-item>
-            </el-breadcrumb>
-        </div>
+    <div class="fu jx-bg-color" style="text-align: center">
+        <BaseImgHeader src="/img/zxdt_banner.jpg"></BaseImgHeader>
         <div class="news-detail-context">
             <div v-html="newsDetail.title" class="news-detail-context-title">
 
@@ -52,7 +43,7 @@
 
 <style scoped>
     .news-detail-context{
-        width: 1000px;display: inline-block;background-color: white;
+        width: 1100px;display: inline-block;background-color: white;
         padding: 0 20px 20px 20px;
         margin-top: 0px;
     }

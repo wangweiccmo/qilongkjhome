@@ -27,6 +27,19 @@ async function getAll() {
     );
 }
 
+
+async function allByMode(mode) {
+    return await News.findAll({
+        where: {
+            mode
+        },
+            order: [
+
+            ]
+        }
+    );
+}
+
 async function getAllByPage(limit) {
     return await News.findAll({
             limit:limit,
@@ -42,6 +55,7 @@ async function add(params) {
 
 module.exports = {
     getNewsById,
+    allByMode,
     getNewsByTitle,
     add,
     getAll,

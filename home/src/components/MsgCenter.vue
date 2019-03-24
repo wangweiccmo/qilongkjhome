@@ -48,11 +48,11 @@
         },
         methods: {
             init(){
-                this.$http.post(news.all,null,this).then((data)=>{
+                this.$http.post(news.allByMode+'1',null,this).then((data)=>{
                     this.newsList = data.ret;
 
                 })
-                this.$http.post(news.all,null,this).then((data)=>{
+                this.$http.post(news.allByMode+'2',null,this).then((data)=>{
                     this.infoList = data.ret;
 
                 })

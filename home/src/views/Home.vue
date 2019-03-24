@@ -1,5 +1,5 @@
 <template>
-    <div class="fu home-body">
+    <div class="fu home-body jx-bg-color">
         <div class="home-body-lv1">
             <div class="home-item-dt">
                 <cmp-d-t>
@@ -28,12 +28,14 @@
             </div>
         </div>
         <div class="home-body-fd">
-            <div style="display: flex">
-                <div>
+            <div class="jx-box" style="line-height: 30px">
+                <div class="jx-font-14">
                     友情链接
                 </div>
-                <div style="flex: 1;height: 2px;margin-top: 10px;background-color: red;vertical-align: middle">
+                <div class="jx-flex1" style="padding-left: 10px">
+                    <div style="height: 2px;margin-top: 15px;background-color: red;vertical-align: middle">
 
+                    </div>
                 </div>
 
             </div>
@@ -60,12 +62,11 @@
 <script>
     import MsgCenter from "../components/MsgCenter"
     import CmpDT from "../components/CmpDT"
-    import JxHeader from "../components/ui/JxHeader"
-    import JxFooder from "../components/ui/JxFooder"
+
 
     export default {
         name: "home",
-        components: {MsgCenter,CmpDT,JxHeader,JxFooder},
+        components: {MsgCenter,CmpDT},
         data() {
             return {
                 activeIndex:'0'
@@ -116,7 +117,6 @@
     }
     .home-body{
         text-align: center;
-        background-color: beige;
         overflow: auto;
     }
     .home-body-com-imfo{

@@ -18,37 +18,44 @@ export default new Router({
         {
             path: "/",
             name: "home",
-            component: Home
+            component: Home,
+            meta: { title: '首页',keepAlive:true}
         },
         {
             path: "/newsDetail",
             name: "NewsDetail",
-            component: NewsDetail
+            component: NewsDetail,
+            meta: { title: '详情',keepAlive:true}
         },
         {
             path: "/CompanyProfile",
             name: "CompanyProfile",
-            component: CompanyProfile
+            component: CompanyProfile,
+            meta: { title: '公司简介',keepAlive:true}
         },
         {
             path: "/BusinessCulture",
             name: "BusinessCulture",
-            component: BusinessCulture
+            component: BusinessCulture,
+            meta: { title: '企业文化',keepAlive:true}
         },
         {
             path: "/Solution",
             name: "Solution",
-            component: Solution
+            component: Solution,
+            meta: { title: '解决方案',keepAlive:true}
         },
         {
             path: "/Case",
             name: "Case",
-            component: Solution
+            component: Case,
+            meta: { title: '典型案列',keepAlive:true}
         },
         {
             path: "/Recruit",
             name: "Recruit",
-            component: Recruit
+            component: Recruit,
+            meta: { title: '招纳贤士',keepAlive:true}
         },
     ]
 });

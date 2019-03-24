@@ -9,14 +9,15 @@
                 default-active="1"
                 class="el-menu-vertical-demo"
                 @select="selectMenu">
+          <el-menu-item index="/home">
+            <i class="el-icon-setting"></i>
+            <span slot="title">首页</span>
+          </el-menu-item>
             <el-menu-item index="/home/newsList">
               <i class="el-icon-setting"></i>
               <span slot="title">新闻发布</span>
             </el-menu-item>
-            <el-menu-item index="/home">
-              <i class="el-icon-setting"></i>
-              <span slot="title">测试</span>
-            </el-menu-item>
+
         </el-menu>
       </div>
       <div class="jx-flex1">

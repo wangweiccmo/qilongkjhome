@@ -1,7 +1,7 @@
 <template>
     <div style="line-height: 35px">
        <div class="header-icon"></div>
-       <span class="jx-font-20" v-text="info"></span>
+       <span class="jx-font-16" v-text="info"></span>
     </div>
 </template>
 
@@ -16,11 +16,11 @@
 <style scoped lang="scss">
     .header-icon{
         width: 3px;
-        height: 23px;
+        height: 16px;
         display: inline-block;
         background-color: #e60012;
         vertical-align: top;
-        margin-top: 6px;
+        margin-top: 10px;
         margin-right: 4px;
     }
 </style>

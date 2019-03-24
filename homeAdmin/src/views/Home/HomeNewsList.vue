@@ -1,7 +1,16 @@
 <template>
   <div class="home fu" style="padding: 30px;position: relative;text-align: left">
+
     <div style="padding: 20px 0">
-       <el-button @click="addNews()" size="mini" type="primary">添加新闻</el-button>
+        <el-select style="margin-right: 20px" @change="modeChange" size="mini" v-model="value" placeholder="请选择">
+          <el-option
+                  v-for="item in options"
+                  :key="item.value"
+                  :label="item.label"
+                  :value="item.value">
+          </el-option>
+        </el-select>
+       <el-button @click="addNews()" size="mini" type="primary">添加</el-button>
     </div>
     <el-table
             border
@@ -37,7 +46,6 @@
         </template>
       </el-table-column>
     </el-table>
-
   </div>
 </template>
 
@@ -45,7 +53,7 @@
 // @ is an alias to /src
 
 import * as news from '_api/api_news';
-
+import {newsModes} from '_api/constant';
 export default {
   name: "HomeNews",
     mixins: [],
@@ -54,25 +62,38 @@ export default {
   },
     data() {
         return {
+            options: newsModes,
+            value: '1',
             treeList:[]
 
         }
     },
     mounted(){
+        console.log('this.$route.query.id',this.$route.query.id)
 
         this.init();
     },
     methods: {
+        modeChange(mode){
+            console.log(mode);
+            this.init();
+        },
         onEditorReady(editor) {
         },
         addNews(){
-            this.$router.push('/home/news')
+            this.$router.push({
+                path: '/home/news',
+                query: {
+                    mode: this.value
+                }
+            })
         },
         edit(row){
             this.$router.push({
                 path: '/home/news',
                 query: {
-                    id: row.id
+                    id: row.id,
+                    mode: this.value
                 }
             })
         },
@@ -80,11 +101,10 @@ export default {
             this.$http.post(news.del+row.id,null,this).then((data)=>{
                 this.init();
             })
-
         },
         init(){
 
-            this.$http.post(news.allByMode,null,this).then((data)=>{
+            this.$http.post(news.allByMode + this.value,null,this).then((data)=>{
               this.treeList = data.ret;
             })
 
