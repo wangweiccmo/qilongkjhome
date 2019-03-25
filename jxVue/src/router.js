@@ -81,129 +81,123 @@ export default new Router({
             name: "首页",
             component: Home,
             children: [
-                {path: '', name: [{name: '首页', path: '/'}], component: HomeIndex},
+                {path: '', name: '首页', component: HomeIndex},
                 {
                     path: 'resource',
-                    name: [{name: '教学资源', path: '/resource'}],
+                    name: '教学资源',
                     component: HomeResource,
                     children: [
                         {
                             path: '',
-                            name: [{name: '教学资源', path: '/resource'}, {name: '首页', path: '/resource'}],
+                            name: '首页',
                             component: ResourceHome
                         },
                         {
                             path: 'tree-set',
-                            name: [{name: '教学资源', path: '/resource'}, {name: '分类设置', path: '/resource/tree-set'}],
+                            name: '分类设置',
                             component: ResourceTreeSet
                         },
                         {
                             path: 'auth',
-                            name: [{name: '教学资源', path: '/resource'}, {name: '分类设置', path: '/resource/auth'}],
+                            name: '资源权限',
                             component: ResourceAuth
                         },
                         {
                             path: 'upload',
-                            name: [{name: '教学资源', path: '/resource'}, {name: '上传资源', path: '/resource/upload'}],
+                            name: '上传资源',
                             component: ResourceUpload
                         },
                         {
                             path: 'approval',
-                            name: [{name: '教学资源', path: '/resource'}, {name: '资源审核', path: '/resource/approval'}],
+                            name: '资源审核',
                             component: ResourceApproval
                         },
                         {
                             path: 'stop',
-                            name: [{name: '教学资源', path: '/resource'}, {name: '启用停用', path: '/resource/stop'}],
+                            name: '启用停用',
                             component: ResourceStop
                         },
                         {
                             path: 'course',
-                            name: [{name: '教学资源', path: '/resource'}, {name: '备课管理', path: '/resource/course'}],
+                            name: '备课管理',
                             component: ResourceAddCourse
                         }
                     ]
                 },
                 {
                     path: 'exam',
-                    name: [{name: '在线考试', path: '/exam'}],
+                    name: '在线考试',
                     component: Exam,
                     children: [
                         {
                             path: '',
-                            name: [{name: '在线考试', path: '/exam'}, {name: '首页', path: '/exam'}],
+                            name: '首页',
                             component: ExamHome
                         }
                     ]
                 },
                 {
                     path: 'base',
-                    name: [{name: '基础应用', path: '/base'}],
+                    name: '基础应用',
                     component: HomeBase,
                     children: [
                         {
                             path: '',
-                            name: [{name: '基础应用', path: '/base'}, {name: '首页', path: '/base'}],
+                            name: '首页',
                             component: HomeBaseHome
                         },
                         {
                             path: 'student-reg',
-                            name: [{name: '基础应用', path: '/base'}, {name: '学生注册', path: '/base/student-reg'}],
+                            name: '学生注册',
                             component: HomeBaseStudentReg
                         },
                         {
                             path: 'student-report',
-                            name: [{name: '基础应用', path: '/base'}, {name: '学生报道', path: '/base/student-report'}],
+                            name: '学生报道',
                             component: HomeBaseStudentReport
                         }
                     ]
                 },
                 {
                     path: 'teacher',
-                    name: [{name: '教职工管理', path: '/teacher'}],
+                    name: '教职工管理',
                     component: TeacherBase,
                     children: [
                         {
                             path: '',
-                            name: [{name: '教职工管理', path: '/teacher'}, {name: '首页', path: '/teacher'}],
+                            name: '首页',
                             component: TeacherBaseHome
                         },
                         {
                             path: 'teacher-reg',
-                            name: [{name: '教职工管理', path: '/teacher'}, {name: '教职工注册', path: '/teacher/teacher-reg'}],
+                            name: '教职工注册',
                             component: TeacherReg
                         }
                     ]
                 },
                 {
                     path: 'dataCenter',
-                    name: [{name: '数据中心', path: '/dataCenter'}],
+                    name: '数据中心',
                     component: DataCenter,
                     children: [
                         {
                             path: '',
-                            name: [{name: '数据中心', path: '/dataCenter'}, {name: '首页', path: '/dataCenter'}],
+                            name: '首页',
                             component: DataCenterHome
                         },
                         {
                             path: 'dcTree',
-                            name: [{name: '数据中心', path: '/dataCenter'}, {name: '分类结构', path: '/dataCenter/dcTree'}],
+                            name: '分类结构',
                             component: DCTree
                         },
                         {
                             path: 'dCTreeShow',
-                            name: [{name: '数据中心', path: '/dataCenter'}, {
-                                name: '分类结构',
-                                path: '/dataCenter/dcTree'
-                            }, {name: '查看', path: '/dataCenter/dCTreeShow'}],
+                            name: '查看',
                             component: DCTreeShow
                         },
                         {
                             path: 'dcTreeEdit',
-                            name: [{name: '数据中心', path: '/dataCenter'}, {
-                                name: '分类结构',
-                                path: '/dataCenter/dcTree'
-                            }, {name: '编辑', path: '/dataCenter/dcTreeEdit'}],
+                            name: '编辑',
                             component: DCTreeEdit
                         }
                     ]
