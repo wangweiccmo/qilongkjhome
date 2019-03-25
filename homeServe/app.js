@@ -48,21 +48,21 @@ app.use(logger())
 
 // app.use(require('koa-static')(__dirname + '/public'))
 
-
+// 缓存一天
 app.use(static(
-    path.join( __dirname,  staticPath)
+    path.join( __dirname,  staticPath),{maxage:1000 * 60 * 60 * 24}
 ))
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
 
 // logger
-app.use(async (ctx, next) => {
-  const start = new Date()
-  await next()
-  const ms = new Date() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
-})
+//app.use(async (ctx, next) => {
+//  const start = new Date()
+//  await next()
+//  const ms = new Date() - start
+//  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+//})
 
 
 // routes
