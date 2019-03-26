@@ -14,6 +14,7 @@ const index = require('./routes/index')
 const user = require('./routes/user')
 const login = require('./routes/login')
 const news = require('./routes/news')
+const file = require('./routes/file')
 // 静态资源目录对于相对入口文件index.js的路径
 const staticPath = './public'
 // error handler
@@ -70,6 +71,7 @@ app.use(index.routes(), index.allowedMethods())
 app.use(user.routes(), user.allowedMethods())
 app.use(login.routes(), login.allowedMethods())
 app.use(news.routes(), news.allowedMethods())
+app.use(file.routes(), file.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
