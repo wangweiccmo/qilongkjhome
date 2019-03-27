@@ -64,7 +64,7 @@ app.use(views(__dirname + '/views', {
 
 
 // routes
-app.use(index.routes(), index.allowedMethods())
+// app.use(index.routes(), index.allowedMethods())
 app.use(user.routes(), user.allowedMethods())
 app.use(login.routes(), login.allowedMethods())
 app.use(news.routes(), news.allowedMethods())
