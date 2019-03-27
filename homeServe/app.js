@@ -49,10 +49,7 @@ app.use(logger())
 
 // app.use(require('koa-static')(__dirname + '/public'))
 
-// 缓存一天
-app.use(static(
-    path.join( __dirname,  staticPath),{maxage:1000 * 60 * 60 * 24}
-))
+
 app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
@@ -73,6 +70,10 @@ app.use(login.routes(), login.allowedMethods())
 app.use(news.routes(), news.allowedMethods())
 app.use(file.routes(), file.allowedMethods())
 
+// 缓存一天
+app.use(static(
+    path.join( __dirname,  staticPath),{maxage:1000 * 60 * 60 * 24}
+))
 // error-handling
 app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)

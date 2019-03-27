@@ -9,6 +9,13 @@ module.exports = {
                 '^/login': '/login'
             }
         },
+        '/uploads': {
+            target: proxySite,
+            changeOrigin: false,
+            pathRewrite: {
+                '^/login': '/login'
+            }
+        },
         '/admin': {
             target: proxySite,
             changeOrigin: false,
@@ -17,6 +24,13 @@ module.exports = {
             }
         },
         '/news': {
+            target: proxySite,
+            changeOrigin: false,
+            pathRewrite: {
+                '^/news': '/news'
+            }
+        },
+        '/file': {
             target: proxySite,
             changeOrigin: false,
             pathRewrite: {

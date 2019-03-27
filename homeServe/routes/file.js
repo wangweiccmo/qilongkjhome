@@ -19,9 +19,15 @@ var storage = multer.diskStorage({
 //加载配置
 var upload = multer({ storage: storage });
 
-router.post('/upload', upload.single('file'), async function (ctx, next) {
+router.get('/aaa', async (ctx, next) => {
     ctx.body = {
-        filename: ctx.req.file.filename//返回文件名
+        title: 'koa2 json'
+    }
+})
+
+router.post('/upload', upload.single('img'), async function (ctx, next) {
+    ctx.body = {
+        filename: '/uploads/'+ctx.req.file.filename//返回文件名
     }
 })
 
