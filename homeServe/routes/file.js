@@ -8,7 +8,7 @@ router.prefix('/file')
 var storage = multer.diskStorage({
     //文件保存路径
     destination: function (req, file, cb) {
-        cb(null, 'public/uploads/')
+        cb(null, '/root/koa/qilongkj/public/uploads/')
     },
     //修改文件名称
     filename: function (req, file, cb) {

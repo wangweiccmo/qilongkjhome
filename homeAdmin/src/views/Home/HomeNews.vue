@@ -131,8 +131,15 @@
         },
         methods: {
             init(id) {
+                const loading = this.$loading({
+                    lock: true,
+                    text: '加载中...',
+                    spinner: 'el-icon-loading',
+                    background: 'rgba(0, 0, 0, 0.7)'
+                });
                 this.$http.post(news.get + id, null, this).then((data) => {
                     this.news = data.ret;
+                    loading.close();
                 })
             },
             black() {
