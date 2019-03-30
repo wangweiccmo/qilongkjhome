@@ -47,6 +47,7 @@
         },
         methods: {
             handleSelect(i) {
+                this.menuActive = i;
                 this.$router.push(i)
             }
         }

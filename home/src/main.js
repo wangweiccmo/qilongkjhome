@@ -16,6 +16,7 @@ import {
     CarouselItem,
     Tabs,
     TabPane,
+    Loading,
     Breadcrumb,
     BreadcrumbItem,
 } from 'element-ui';
@@ -30,6 +31,8 @@ Vue.use(Carousel)
 Vue.use(CarouselItem)
 Vue.use(Tabs);
 Vue.use(TabPane);
+Vue.use(Loading);
+
 Vue.component(JxHeader.name, JxHeader);
 Vue.component(JxFooder.name, JxFooder);
 Vue.component(BaseImgHeader.name, BaseImgHeader);

@@ -31,8 +31,7 @@ export default new Router({
                 },
                 {
                     path: 'news',
-                    component: HomeNews,
-                    meta: { keepAlive: true }
+                    component: HomeNews
                 },
                 {
                     path: 'newsList',

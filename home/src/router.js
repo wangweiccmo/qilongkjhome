@@ -25,7 +25,7 @@ export default new Router({
             path: "/newsDetail",
             name: "NewsDetail",
             component: NewsDetail,
-            meta: { title: '详情',keepAlive:true}
+            meta: { title: '详情'}
         },
         {
             path: "/CompanyProfile",

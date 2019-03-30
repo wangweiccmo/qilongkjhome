@@ -72,7 +72,7 @@ app.use(file.routes(), file.allowedMethods())
 
 // 缓存一天
 app.use(static(
-    path.join( __dirname,  staticPath),{maxage:1000 * 60 * 60 * 24}
+    path.join( __dirname,  staticPath),{maxage:1000 * 60 * 60 * 24 * 5}
 ))
 // error-handling
 app.on('error', (err, ctx) => {
