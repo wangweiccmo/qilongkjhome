@@ -81,6 +81,10 @@ import './assets/css/base.css'
 // Vue.use(Main);
 // Vue.use(Footer);
 Vue.use(ElementUI);
+
+import JxBreadcrumb from './components/ui/JxBreadcrumb.vue';
+Vue.component(JxBreadcrumb.name,JxBreadcrumb);
+
 Vue.config.productionTip = false;
 Vue.prototype.$http = $http;
 

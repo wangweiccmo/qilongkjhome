@@ -138,7 +138,7 @@ export default new Router({
                 },
                 {
                     path: 'base',
-                    name: '基础应用',
+                    name: '学生管理',
                     component: HomeBase,
                     children: [
                         {
