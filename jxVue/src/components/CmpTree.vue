@@ -110,7 +110,6 @@
 
 <style scoped>
     .cmp-tree {
-        padding-top: 20px;
         width: 200px;
         height: 100%;
         text-align: left;

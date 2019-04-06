@@ -1,8 +1,6 @@
 <template>
     <div class="fu jx-l" style="text-align: right;padding: 0 10px">
-        <JxBreadcrumb>
-
-        </JxBreadcrumb>
+        <JxBreadcrumb></JxBreadcrumb>
         <div>
             <CmpHomeEcharts>
 

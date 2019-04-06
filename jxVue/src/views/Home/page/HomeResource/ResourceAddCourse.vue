@@ -1,16 +1,6 @@
 <template>
     <div class="fu jx-l jx-box-column">
-        <div class="jx-breadcrumb">
-            <div class="">
-                当前位置：
-            </div>
-            <div style="padding-top: 3px">
-                <el-breadcrumb v-if="$route.name && $route.name.length" separator="/">
-                    <el-breadcrumb-item v-for="item,i in $route.name" :key="i" :to="{ path: item.path }">{{item.name}}
-                    </el-breadcrumb-item>
-                </el-breadcrumb>
-            </div>
-        </div>
+        <JxBreadcrumb></JxBreadcrumb>
         <div class="jx-flex1 jx-box">
             <CmpTree :bindId="bindId" @handleNodeClick="handleNodeClick">
 

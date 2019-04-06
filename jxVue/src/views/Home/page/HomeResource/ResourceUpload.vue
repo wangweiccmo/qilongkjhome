@@ -1,16 +1,6 @@
 <template>
     <div class="fu jx-l jx-box-column">
-        <div class="jx-breadcrumb">
-            <div class="">
-                当前位置：
-            </div>
-            <div style="padding-top: 3px">
-                <el-breadcrumb v-if="$route.name && $route.name.length" separator="/">
-                    <el-breadcrumb-item v-for="item,i in $route.name" :key="i" :to="{ path: item.path }">{{item.name}}
-                    </el-breadcrumb-item>
-                </el-breadcrumb>
-            </div>
-        </div>
+        <JxBreadcrumb></JxBreadcrumb>
         <div class="jx-flex1 jx-box">
             <CmpTree :bindId="bindId" @handleNodeClick="handleNodeClick">
 
@@ -91,11 +81,11 @@
                                 label="审核状态"
                                 width="50">
                         </el-table-column>
-                        <el-table-snpm
+                        <el-table-column
                                 prop="subjectMap"
                                 label="学科"
                                 width="100">
-                        </el-table-snpm>
+                        </el-table-column>
                         <el-table-column
                                 prop="map"
                                 label="资源路径"

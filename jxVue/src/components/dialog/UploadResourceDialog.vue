@@ -32,6 +32,7 @@
                     <el-radio v-model="upFileOption.allowDownload" label="0" value="0">不允许</el-radio>
                 </el-form-item>
             </el-form>
+            <el-button style="margin-left: 10px;" size="mini" type="success" @click="submitUpload">上传到服务器</el-button>
 
             <el-upload
                     class="upload-demo"
@@ -48,7 +49,6 @@
                 <i class="el-icon-upload"></i>
                 <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
             </el-upload>
-            <el-button style="margin-left: 10px;" size="mini" type="success" @click="submitUpload">上传到服务器</el-button>
 
         </el-dialog>
 
@@ -138,6 +138,9 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-
+<style scoped>
+    .upload-demo {
+        display: flex;
+        margin-top: 10px;
+    }
 </style>

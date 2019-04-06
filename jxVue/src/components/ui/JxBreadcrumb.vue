@@ -48,7 +48,18 @@ export default {
 </script>
 
 <style scoped>
+  .jx-breadcrumb {
+    border-bottom: solid 1px #e6e6e6;
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    color: #606266;
+    cursor: text;
+    line-height: 20px;
 
+  }
   .no-redirect {
     color: #97a8be;
     cursor: text;
