@@ -2,9 +2,7 @@ package com.smartcampus.provider.db1.dao;
 
 import com.smartcampus.provider.entity.PageSearchEntity;
 import com.smartcampus.provider.entity.ResourceEntity;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectKey;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -20,4 +18,9 @@ public interface ResourceMapper {
 	@Select("SELECT COUNT(*) FROM jx_resource")
 	int count();
 
+	@Delete("DELETE from jx_resource where id=#{id}" )
+	int delById(@Param("id") Integer id);
+
+	@Delete("DELETE from jx_resource where id in (#{ids})" )
+	int delByIds(@Param("ids") String ids);
 }

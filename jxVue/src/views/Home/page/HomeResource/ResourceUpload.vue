@@ -44,15 +44,14 @@
                 </div>
                 <el-row style="padding: 10px">
                     <el-button size="mini" type="primary" @click="uploadFile">上传文件</el-button>
-                    <el-button size="mini" type="primary">excel批量添加</el-button>
-                    <el-button size="mini" type="primary">模板下载</el-button>
-                    <el-button size="mini" type="danger">批量删除</el-button>
+                    <el-button size="mini" type="danger" @click="batDel">批量删除</el-button>
                 </el-row>
                 <div class="jx-flex1">
 
                     <el-table
                             border
                             size="mini"
+                            v-loading="isLoading"
                             :data="tableData"
                             @selection-change="handleSelectionChange"
                             style="width: 100%">
@@ -112,8 +111,8 @@
                                 width="160">
                             <template slot-scope="scope">
                                 <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-                                <el-button type="text" size="small">编辑</el-button>
-                                <el-button type="text" size="small" style="color: red">删除</el-button>
+                                <el-button @click="editClick(scope.row)" type="text" size="small">编辑</el-button>
+                                <el-button @click="delClick(scope.row)" type="text" size="small" style="color: red">删除</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -157,10 +156,12 @@
                 searchObj: {
                     subject:[]
                 },
+                isLoading:false,
                 bindId: 2,
                 currentPage: 1,
                 total:10,
                 tableData:[],
+                multipleSelection: [],
                 dict:{
                     resourceType:[],
                     resourceStandard:[],
@@ -203,18 +204,46 @@
             handleCurrentChange(val) {
                 console.log(`当前页: ${val}`);
             },
-            handleSelectionChange(){
-
+            handleSelectionChange(val){
+                this.multipleSelection = val;
+                console.log(val)
             },
             handleNodeClick(data, bindId,map) {
                 this.checkedNode = data;
                 console.log(data, bindId);
+                this.getResourcesByPage();
             },
             search(){
                 console.log(this.searchObj);
             },
+            handleClick(row){
+            console.log(11)
+            },
+            editClick(row){
+
+            },
+            delClick(row){
+                this.$http.post(RESOURCE_API.delById,{id:row.id},this).then((res)=>{
+                    this.getResourcesByPage();
+                })
+            },
+            batDel(){
+                let ids = this.multipleSelection.map((item)=>item.id).join(',');
+                this.$http.post(RESOURCE_API.delByIds,{ids},this).then((res)=>{
+                    this.multipleSelection = [];
+                    this.getResourcesByPage();
+                })
+            },
             uploadFile(){
-                this.uploadResourceDialogShow = true;
+                if(this.checkedNode){
+                    this.uploadResourceDialogShow = true;
+                }else{
+                    this.$alert('请先选择左侧分类！')
+                        .then(_ => {
+
+                        })
+                        .catch(_ => {});
+                }
             }
         }
     }

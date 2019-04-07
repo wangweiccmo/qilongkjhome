@@ -30,4 +30,12 @@ public class ResourceService {
 		return st2;
 	}
 
+	public int delById(Integer id) {
+		return rsourceMapper.delById(id);
+	}
+
+	public int delByIds(String ids) {
+		return rsourceMapper.delByIds(ids);
+	}
+
 }

@@ -9,6 +9,7 @@
         </el-input>
         <el-tree style="margin-top: 10px"
                  :data="data"
+                 v-loading="isLoading"
                  node-key="id"
                  highlight-current
                  :expand-on-click-node="false"
@@ -41,6 +42,7 @@
         data() {
             return {
                 filterText: '',
+                isLoading:false,
                 data: []
             };
 

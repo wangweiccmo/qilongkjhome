@@ -83,7 +83,7 @@ public class ResourceController {
             resourceEntity.setAllowDownload(allowDownload);
             resourceService.insert(resourceEntity);
 
-            return new Rep(RepCode.OK);
+            return new Rep(RepCode.OK,resourceEntity);
         } catch (IOException e) {
 
         }
@@ -103,5 +103,19 @@ public class ResourceController {
         return new Rep(RepCode.OK,st1,pageSearchEntity);
     }
 
+    @ResponseBody
+    @RequestMapping("/delById")
+    public Rep delById(@RequestBody Map<String,Object> reqMap) {
+        Integer id = Integer.valueOf(reqMap.get("id").toString());
+        Integer res = resourceService.delById(id);
+        return new Rep(RepCode.OK,res);
+    }
 
+    @ResponseBody
+    @RequestMapping("/delByIds")
+    public Rep delByIds(@RequestBody Map<String,Object> reqMap) {
+        String ids = reqMap.get("ids").toString();
+        Integer res = resourceService.delByIds(ids);
+        return new Rep(RepCode.OK,res);
+    }
 }

@@ -4,3 +4,8 @@ import {HOST} from './api';
 export const addfile = `${HOST}/resource/addfile`;
 
 export const getListByPage = `${HOST}/resource/getListByPage`;
+
+export const delById = `${HOST}/resource/delById`;
+
+export const delByIds = `${HOST}/resource/delByIds`;
+
