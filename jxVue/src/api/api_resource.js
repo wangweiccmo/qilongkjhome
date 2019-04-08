@@ -9,3 +9,10 @@ export const delById = `${HOST}/resource/delById`;
 
 export const delByIds = `${HOST}/resource/delByIds`;
 
+export const passById = `${HOST}/resource/passById`;
+
+export const passByIds = `${HOST}/resource/passByIds`;
+
+export const stopById = `${HOST}/resource/stopById`;
+
+export const stopByIds = `${HOST}/resource/stopByIds`;

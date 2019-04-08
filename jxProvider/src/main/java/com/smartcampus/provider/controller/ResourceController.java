@@ -7,6 +7,7 @@ import com.smartcampus.provider.constant.Stu;
 import com.smartcampus.provider.db1.service.ResourceService;
 import com.smartcampus.provider.db1.service.StudentService;
 import com.smartcampus.provider.entity.*;
+import com.smartcampus.provider.entity.params.IdsStatusParams;
 import com.smartcampus.provider.utils.ExcelHelper;
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -116,6 +117,39 @@ public class ResourceController {
     public Rep delByIds(@RequestBody Map<String,Object> reqMap) {
         String ids = reqMap.get("ids").toString();
         Integer res = resourceService.delByIds(ids);
+        return new Rep(RepCode.OK,res);
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/passById")
+    public Rep passById(@RequestBody Map<String,Object> reqMap) {
+        Integer id = Integer.valueOf(reqMap.get("id").toString());
+        Integer status = Integer.valueOf(reqMap.get("status").toString());
+        Integer res = resourceService.passById(id,status);
+        return new Rep(RepCode.OK,res);
+    }
+
+    @ResponseBody
+    @RequestMapping("/passByIds")
+    public Rep passByIds(@RequestBody IdsStatusParams idsStatusParams) {
+        Integer res = resourceService.passByIds( idsStatusParams);
+        return new Rep(RepCode.OK,res);
+    }
+
+    @ResponseBody
+    @RequestMapping("/stopById")
+    public Rep stopById(@RequestBody Map<String,Object> reqMap) {
+        Integer id = Integer.valueOf(reqMap.get("id").toString());
+        Integer status = Integer.valueOf(reqMap.get("status").toString());
+        Integer res = resourceService.stopById(id,status);
+        return new Rep(RepCode.OK,res);
+    }
+
+    @ResponseBody
+    @RequestMapping("/stopByIds")
+    public Rep stopByIds(@RequestBody IdsStatusParams idsStatusParams) {
+        Integer res = resourceService.stopByIds( idsStatusParams);
         return new Rep(RepCode.OK,res);
     }
 }

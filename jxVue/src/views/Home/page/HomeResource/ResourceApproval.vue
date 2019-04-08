@@ -43,13 +43,14 @@
                     </el-form>
                 </div>
                 <el-row style="padding: 10px">
-                    <el-button size="mini" type="primary">批量审批通过</el-button>
-                    <el-button size="mini" type="primary">批量审批不通过</el-button>
+                    <el-button size="mini" @click="passBatClick(1)" type="primary">批量审批通过</el-button>
+                    <el-button size="mini" @click="passBatClick(2)" type="primary">批量审批不通过</el-button>
                 </el-row>
                 <div class="jx-flex1">
                     <el-table
                             border
                             size="mini"
+                            v-loading="isLoading"
                             :data="tableData"
                             @selection-change="handleSelectionChange"
                             style="width: 100%">
@@ -108,8 +109,8 @@
                                 label="操作"
                                 width="160">
                             <template slot-scope="scope">
-                                <el-button @click="handleClick(scope.row)" type="text" size="small">通过</el-button>
-                                <el-button type="text" size="small" style="color: red">不通过</el-button>
+                                <el-button @click="passClick(scope.row,1)" type="text" size="small">通过</el-button>
+                                <el-button @click="passClick(scope.row,2)"  type="text" size="small" style="color: red">不通过</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -149,6 +150,8 @@
                 searchObj: {
                     subject:[]
                 },
+                isLoading:false,
+                multipleSelection:[],
                 bindId: 2,
                 currentPage: 1,
                 total:10,
@@ -195,8 +198,19 @@
             handleCurrentChange(val) {
                 console.log(`当前页: ${val}`);
             },
-            handleSelectionChange(){
-
+            handleSelectionChange(val){
+                this.multipleSelection = val;
+            },
+            passClick(row,status){
+                this.$http.post(RESOURCE_API.passById,{id:row.id,status},this).then((res)=>{
+                    this.getResourcesByPage();
+                })
+            },
+            passBatClick(status){
+                let ids = this.multipleSelection.map((item)=>item.id);
+                this.$http.post(RESOURCE_API.passByIds,{ids,status},this).then((res)=>{
+                    this.getResourcesByPage();
+                })
             },
             handleNodeClick(data, bindId,map) {
                 this.checkedNode = data;

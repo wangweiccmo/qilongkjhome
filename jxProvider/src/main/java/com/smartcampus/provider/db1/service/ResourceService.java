@@ -3,6 +3,7 @@ package com.smartcampus.provider.db1.service;
 import com.smartcampus.provider.db1.dao.ResourceMapper;
 import com.smartcampus.provider.entity.PageSearchEntity;
 import com.smartcampus.provider.entity.ResourceEntity;
+import com.smartcampus.provider.entity.params.IdsStatusParams;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +37,25 @@ public class ResourceService {
 
 	public int delByIds(String ids) {
 		return rsourceMapper.delByIds(ids);
+	}
+
+
+	public int passById(Integer id,Integer status) {
+
+		return rsourceMapper.passById(id,status);
+	}
+
+	public int passByIds(IdsStatusParams idsStatusParams) {
+		return rsourceMapper.passByIds(idsStatusParams);
+	}
+
+	public int stopById(Integer id,Integer status) {
+
+		return rsourceMapper.stopById(id,status);
+	}
+
+	public int stopByIds(IdsStatusParams idsStatusParams) {
+		return rsourceMapper.stopByIds(idsStatusParams);
 	}
 
 }
