@@ -8,6 +8,8 @@ public class PageSearchEntity {
 	private Integer pageSize = 50;
 	private Integer offSet = 0;
 	private Integer total = 0;
+	private Object condition = null;
+
 
 	public PageSearchEntity(Integer page,Integer pageSize){
 		this.page = page;
@@ -54,5 +56,13 @@ public class PageSearchEntity {
 
 	public void setTotal(Integer total) {
 		this.total = total;
+	}
+
+	public Object getCondition() {
+		return condition;
+	}
+
+	public void setCondition(Object condition) {
+		this.condition = condition;
 	}
 }
