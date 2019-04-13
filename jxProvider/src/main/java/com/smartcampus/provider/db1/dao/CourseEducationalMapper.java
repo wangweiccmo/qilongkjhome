@@ -22,7 +22,7 @@ public interface CourseEducationalMapper {
 	Integer count();
 
 	@Insert("INSERT INTO jx_course_educational(code, name,point,open_unit,teaching_methods,test_type,status) " +
-			"VALUES(#{code}, #{name}, #{point}, #{openUnit}, #{teachingMethods}, #{testType), #{status)")
+			"VALUES(#{code}, #{name}, #{point}, #{openUnit}, #{teachingMethods}, #{testType}, #{status})")
 	@SelectKey(statement="SELECT LAST_INSERT_ID() as id", keyProperty="id", before=false, resultType=int.class)
 	Integer insert(CourseEducationalEntity courseEducationalEntity);
 

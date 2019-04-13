@@ -1,5 +1,6 @@
 package com.smartcampus.provider.controller;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.smartcampus.provider.constant.RepCode;
 import com.smartcampus.provider.db1.service.CourseEducationalService;
 import com.smartcampus.provider.entity.CourseEducationalEntity;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 @CrossOrigin
 @Controller
-@RequestMapping("/course")
+@RequestMapping("/courseEducational")
 public class CourseEducationalController {
 	private static Logger logger = Logger.getLogger(CourseEducationalController.class);
 
@@ -37,14 +38,16 @@ public class CourseEducationalController {
 	@RequestMapping("/selectByPage")
 	public Rep selectByPage(@RequestBody PageSearchEntity pageSearchEntity) {
 		List<CourseEducationalEntity> res = courseEducationalService.selectByPage(pageSearchEntity);
-		return new Rep(RepCode.OK,res);
+		Integer count = courseEducationalService.count();
+		return new Rep(RepCode.OK,res,count);
 	}
 
 	@ResponseBody
 	@RequestMapping("/selectByConditionAndPage")
 	public Rep selectByConditionAndPage(@RequestBody PageSearchEntity pageSearchEntity) {
 		List<CourseEducationalEntity> res = courseEducationalService.selectByConditionAndPage(pageSearchEntity);
-		return new Rep(RepCode.OK,res);
+		Integer count = courseEducationalService.count();
+		return new Rep(RepCode.OK,count);
 	}
 
 	@ResponseBody
@@ -71,7 +74,9 @@ public class CourseEducationalController {
 	@ResponseBody
 	@RequestMapping("/delById")
 	public Rep delById(@RequestBody CourseEducationalEntity courseEducationalEntity) {
-		Integer res = courseEducationalService.upAllById(courseEducationalEntity);
+		logger.info("#####################请求开始####################");
+		logger.info(courseEducationalEntity.getId());
+		Integer res = courseEducationalService.delById(courseEducationalEntity);
 		return new Rep(RepCode.OK,res);
 	}
 }

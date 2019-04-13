@@ -65,6 +65,8 @@ const DCTreeEdit = () => import(/* webpackChunkName: "group-enrollment" */ './vi
 const DCTreeShow = () => import(/* webpackChunkName: "group-enrollment" */ './views/Home/page/DataCenter/DCTreeShow.vue');
 // 首页-数据中心-数据字典
 const DCExam = () => import(/* webpackChunkName: "group-enrollment" */ './views/Home/page/DataCenter/DCExam.vue');
+// 首页-数据中心-数据字典
+const DCCourseeducationalList = () => import(/* webpackChunkName: "group-enrollment" */ './views/Home/page/DataCenter/DCCourseeducationalList.vue');
 
 
 // 首页-在线考试
@@ -189,6 +191,11 @@ export default new Router({
                             path: 'dcTree',
                             name: '分类结构',
                             component: DCTree
+                        },
+                        {
+                            path: 'dcCourseeducationalList',
+                            name: '教务课程',
+                            component: DCCourseeducationalList
                         },
                         {
                             path: 'dCTreeShow',

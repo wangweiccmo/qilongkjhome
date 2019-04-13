@@ -43,11 +43,42 @@ export default {
                 ],
                 testAge: [
                     {validator: checkAge, trigger: 'blur'}
+                ],
+                isInteger:[
+                    {
+                        pattern:/^[1-9]\d*$/, message: '只能输入正整数'
+                    }
                 ]
             }
         }
     },
     methods: {
+        getRuls(rules){
+            let res = [];
+            if(rules){
+               let ruleList = rules.split(',');
+                for(let i =0;i<ruleList.length;i++){
+                    let ruleStr = ruleList[i];
+                    let rule = this.createRuls(ruleStr);
+                    res = res.concat(rule)
+                }
+            }
+            console.log(res);
+            return res;
+        },
+        createRuls(ruleStr){
+            if(ruleStr.indexOf("-")>=0){
+                let sts = ruleStr.split('-');
+                if(sts[0] == 'max'){
+                    let stv = parseInt(sts[1]);
+                    return [{ max: stv, message: `最长${stv}位`, trigger: 'blur'}];
+                }
+
+            }else{
+                return this.rules[ruleStr];
+            }
+
+        },
         checkParams(value,ruleKey) {
             let ruleArr = this.rules[ruleKey];
             let error = false;
