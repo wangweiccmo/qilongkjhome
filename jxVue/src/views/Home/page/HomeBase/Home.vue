@@ -10,11 +10,11 @@
 </template>
 
 <script>
-    import CmpHomeEcharts from '_cmp/CmpHomeEcharts.vue'
+
     export default {
         name: "HomeBaseHome",
         components: {
-            CmpHomeEcharts
+
         },
         data() {
             return {

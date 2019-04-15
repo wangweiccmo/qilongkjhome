@@ -1,9 +1,9 @@
 import axios from 'axios';
 import {getLocal} from './local'
 // host
-export const HOST = "http://localhost:8090/jx";
+export const HOST = "/jx";
 // 静态资源服务器
-export const STATIC_HOST = "http://localhost:8090";
+export const STATIC_HOST = "";
 // 请求中心
 export const $http = {
     post:(url,params,context)=>{

@@ -1,35 +1,38 @@
 <template>
     <div class="fu jx-l" >
-        <div class="comlist-toolBar">
-            <el-button size="mini" @click.stop="createItem" type="primary">新建</el-button>
-            <el-button size="mini" @click.stop="getList" type="primary">刷新</el-button>
-            <!--<el-button size="mini" @click.stop="batDelete" type="danger">批量删除</el-button>-->
-
-        </div>
         <el-table
                 border
                 size="mini"
+                ref="multipleTable"
                 v-loading="isLoading"
                 :data="dataList"
+                highlight-current-row
+                @current-change="tableCurrentChange"
+                @selection-change="handleSelectionChange"
                 style="width: 100%;height: calc(100% - 70px)">
+            <el-table-column
+                    v-if="choMode == 2"
+                    type="selection"
+                    width="55">
+            </el-table-column>
             <template  v-for="option,key in httpApi.tableType">
+
                 <el-table-column
-                        v-if="option.type == 'Operation'"
-                        :width="option.width"
-                        :label="option.label">
-                    <template slot-scope="scope">
-                        <el-button v-if="option.show" @click="show(scope.row)" type="text" size="small">查看</el-button>
-                        <el-button v-if="option.edit" @click="edit(scope.row)"  type="text" size="small">编辑</el-button>
-                        <el-button v-if="option.delete" @click="del(scope.row)" style="color:red" type="text" size="small">删除</el-button>
-                    </template>
-                </el-table-column>
-                <el-table-column
-                         v-else
+                        v-if="option.type != 'Operation'"
                         :prop="key"
                         :label="option.label"
                         :width="option.width">
                 </el-table-column>
+
             </template>
+            <el-table-column
+                    v-if="operationOption.btns"
+                    :width="operationOption.width"
+                    label="操作">
+                <template slot-scope="scope">
+                    <el-button v-if="operationOption.btns.choice" @click="choice(scope.row)" type="text" size="small">选择</el-button>
+                </template>
+            </el-table-column>
         </el-table>
         <div style="width: 100%;text-align: right;background-color: white">
             <el-pagination
@@ -42,27 +45,28 @@
                     :total="total">
             </el-pagination>
         </div>
-        <ComListCreateDialog
-                v-if="comListCreateDialogShow"
-                :httpApi="httpApi"
-                :id="id"
-                :mode="mode"
-                @inster-over="createOver"
-                :visible.sync="comListCreateDialogShow">
 
-        </ComListCreateDialog>
     </div>
 </template>
 
 <script>
-    import ComListCreateDialog from '_cmp/dialog/ComListCreateDialog';
     import formatterMixin from '_cmp/mixin/formatterMixin.js';
 
     export default {
-        name: "ComList",
+        name: "ComShowList",
         mixins: [formatterMixin],
-        components: {ComListCreateDialog},
+        components: {},
         props:{
+            operationOption:{
+                type: Object,
+                default:()=>({
+
+                })
+            },
+            choMode:{// 1单选，2多选
+                type: Number,
+                default:1
+            },
             httpApi:{
                 type: Object,
                 default:()=>({})
@@ -72,6 +76,7 @@
             return {
                 comListCreateDialogShow:false,
                 total:200,
+                currentRow:null,
                 isLoading:false,
                 mode:0, //0新建 1 查看 2 编辑
                 page:{page:1,pageSize:50},
@@ -84,12 +89,20 @@
             this.getList();
         },
         methods: {
-            createItem(){
-                this.mode = 0;
-                this.id = null;
-                this.comListCreateDialogShow = true;
+            tableCurrentChange(row) {
+                if(this.choMode==1){
+                    this.$emit('choice',row);
+                }else{
+                    this.currentRow = row;
+                    this.toggleSelection(row)
+                }
             },
-            batDelete(){
+            handleSelectionChange(){
+
+            },
+            toggleSelection(row) {
+                this.$refs.multipleTable.clearSelection();
+                this.$refs.multipleTable.toggleRowSelection(row);
 
             },
             handleSizeChange(size){
@@ -109,28 +122,8 @@
                     this.total = res.extend;
                 })
             },
-            createOver(data){
-                this.getList();
-            },
-            show(row){
-                this.mode = 1;
-                this.id = row.id;
-                this.comListCreateDialogShow = true;
-            },
-            edit(row){
-                this.mode = 2;
-                this.id = row.id;
-                this.comListCreateDialogShow = true;
-            },
-            del(row){
-                var isDel = window.confirm("是否删除本条数据？")
-                if(isDel){
-                    this.$http.post(this.httpApi.delById,{id:row.id},this).then((res)=>{
-                        this.dataList = this.dataList.filter(item => item.id != row.id);
-                        this.total = this.total - 1;
-                    })
-                }
-
+            choice(rows){
+                this.$emit('choice',rows)
             }
         }
     }

@@ -28,18 +28,24 @@ public class CourseEntity implements java.io.Serializable {
     private Integer id;
     private String code;
     private String name;
-    private String esName;
     private Integer type;
+    private String typeMap;
+    private String esName;
     private Integer point;
-    private Integer time;
+    private Integer theoryClassHour;
+    private Integer practiceClassHour;
     private String openUnit;
-    private String teachers;
+    private String teacherIds;
     private Integer status;
     private String coverUrl;
     private String books;
     private String info;
-    private Integer examType;
+    private Integer testType;
     private String classLv;
+    private Integer createUid;
+    private String plan;
+    private String target;
+
 
     public Integer getId() {
         return id;
@@ -89,13 +95,7 @@ public class CourseEntity implements java.io.Serializable {
         this.point = point;
     }
 
-    public Integer getTime() {
-        return time;
-    }
 
-    public void setTime(Integer time) {
-        this.time = time;
-    }
 
     public String getOpenUnit() {
         return openUnit;
@@ -105,13 +105,7 @@ public class CourseEntity implements java.io.Serializable {
         this.openUnit = openUnit;
     }
 
-    public String getTeachers() {
-        return teachers;
-    }
 
-    public void setTeachers(String teachers) {
-        this.teachers = teachers;
-    }
 
     public Integer getStatus() {
         return status;
@@ -145,12 +139,12 @@ public class CourseEntity implements java.io.Serializable {
         this.info = info;
     }
 
-    public Integer getExamType() {
-        return examType;
+    public Integer getTestType() {
+        return testType;
     }
 
-    public void setExamType(Integer examType) {
-        this.examType = examType;
+    public void setTestType(Integer testType) {
+        this.testType = testType;
     }
 
     public String getClassLv() {
@@ -159,5 +153,61 @@ public class CourseEntity implements java.io.Serializable {
 
     public void setClassLv(String classLv) {
         this.classLv = classLv;
+    }
+
+    public String getTypeMap() {
+        return typeMap;
+    }
+
+    public void setTypeMap(String typeMap) {
+        this.typeMap = typeMap;
+    }
+
+    public Integer getTheoryClassHour() {
+        return theoryClassHour;
+    }
+
+    public void setTheoryClassHour(Integer theoryClassHour) {
+        this.theoryClassHour = theoryClassHour;
+    }
+
+    public Integer getPracticeClassHour() {
+        return practiceClassHour;
+    }
+
+    public void setPracticeClassHour(Integer practiceClassHour) {
+        this.practiceClassHour = practiceClassHour;
+    }
+
+    public String getTeacherIds() {
+        return teacherIds;
+    }
+
+    public void setTeacherIds(String teacherIds) {
+        this.teacherIds = teacherIds;
+    }
+
+    public Integer getCreateUid() {
+        return createUid;
+    }
+
+    public void setCreateUid(Integer createUid) {
+        this.createUid = createUid;
+    }
+
+    public String getPlan() {
+        return plan;
+    }
+
+    public void setPlan(String plan) {
+        this.plan = plan;
+    }
+
+    public String getTarget() {
+        return target;
+    }
+
+    public void setTarget(String target) {
+        this.target = target;
     }
 }

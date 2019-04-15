@@ -2,6 +2,7 @@ package com.smartcampus.provider.db1.service;
 
 import com.smartcampus.provider.db1.dao.CourseMapper;
 import com.smartcampus.provider.entity.CourseEntity;
+import com.smartcampus.provider.entity.CourseEntity;
 import com.smartcampus.provider.entity.PageSearchEntity;
 import com.smartcampus.provider.entity.ResourceEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,29 +16,48 @@ public class CourseService {
 	@Autowired
 	private CourseMapper courseMapper;
 
+	public CourseEntity selectById(CourseEntity CourseEntity) {
+		return courseMapper.selectById(CourseEntity);
+	}
+
+
+	public List<CourseEntity> selectByPage(PageSearchEntity pageSearchEntity){
+		return courseMapper.selectByPage(pageSearchEntity);
+	}
+
+	public List<CourseEntity> selectByConditionAndPage(PageSearchEntity pageSearchEntity){
+		return courseMapper.selectByConditionAndPage(pageSearchEntity);
+	}
+
+	public Integer count(){
+		return courseMapper.count();
+	}
+
 	@Transactional
-	public int insert(CourseEntity courseEntity) {
-		return courseMapper.insert(courseEntity);
+	public Integer insert(CourseEntity CourseEntity) {
+		return courseMapper.insert(CourseEntity);
 	}
 
-	public CourseEntity selectById(Integer id) {
-		CourseEntity courseEntity = courseMapper.selectById(id);
-		return courseEntity;
+	@Transactional
+	public Integer upStatus(CourseEntity CourseEntity) {
+		return courseMapper.upStatus(CourseEntity);
+	}
+	@Transactional
+	public Integer upTarget(CourseEntity CourseEntity) {
+		return courseMapper.upStatus(CourseEntity);
+	}
+	@Transactional
+	public Integer upPlan(CourseEntity CourseEntity) {
+		return courseMapper.upStatus(CourseEntity);
+	}
+	@Transactional
+	public Integer upAllById(CourseEntity CourseEntity) {
+		return courseMapper.upAllById(CourseEntity);
 	}
 
-	public CourseEntity selectByCode(String code) {
-		CourseEntity courseEntity = courseMapper.selectByCode(code);
-		return courseEntity;
-	}
-
-	public CourseEntity selectByName(String name) {
-		CourseEntity courseEntity = courseMapper.selectByName(name);
-		return courseEntity;
-	}
-
-	public List<CourseEntity> selectByPage(PageSearchEntity pageSearchEntity) {
-		List<CourseEntity>  courseEntitys = courseMapper.selectByPage(pageSearchEntity);
-		return courseEntitys;
+	@Transactional
+	public Integer delById(CourseEntity CourseEntity) {
+		return courseMapper.delById(CourseEntity);
 	}
 
 }

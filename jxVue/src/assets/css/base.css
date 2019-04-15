@@ -77,6 +77,14 @@ a:hover {
     overflow: hidden;
     min-width: 0;
 }
+.jx-box-align-end {
+    align-items:flex-end;
+}
+.jx-box-align-center {
+    align-items:center;
+}
+
+align-items
 .jx-box-wrap{
     flex-wrap:wrap
 }
@@ -94,7 +102,7 @@ a:hover {
 
 .jx-card {
     text-align: left;
-    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .1);
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, .4);
 }
 
 .jx-box-shadow {
@@ -112,6 +120,10 @@ a:hover {
 .jx-font-14 {
     color: #555;
     font-size: 14px;
+}
+.jx-font-26 {
+    color: #555;
+    font-size: 26px;
 }
 .jx-font-12 {
     color: #555;
@@ -166,4 +178,13 @@ a:hover {
     -moz-osx-font-smoothing: grayscale;
     height: 100%;
     width: 100%;
+}
+.dialog-footer{
+    text-align: right;
+}
+.jx-form-item-fu{
+    width: 100% !important;
+}
+.jx-form-item-fu .el-form-item__content{
+    width: 60% !important;
 }

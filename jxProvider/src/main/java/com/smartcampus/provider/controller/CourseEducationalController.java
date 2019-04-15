@@ -74,8 +74,6 @@ public class CourseEducationalController {
 	@ResponseBody
 	@RequestMapping("/delById")
 	public Rep delById(@RequestBody CourseEducationalEntity courseEducationalEntity) {
-		logger.info("#####################请求开始####################");
-		logger.info(courseEducationalEntity.getId());
 		Integer res = courseEducationalService.delById(courseEducationalEntity);
 		return new Rep(RepCode.OK,res);
 	}

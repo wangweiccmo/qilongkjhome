@@ -1,6 +1,11 @@
 <template>
     <div class="fu jx-l" style="padding: 10px">
-        数据中心
+        <JxBreadcrumb></JxBreadcrumb>
+        <div>
+            <CmpHomeEcharts>
+
+            </CmpHomeEcharts>
+        </div>
     </div>
 </template>
 

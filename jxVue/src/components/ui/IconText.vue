@@ -1,6 +1,6 @@
 <template>
     <div class="icon-text-body " @click.stop="click" >
-       <i :class="icon" class="iconfont  icon-drxx29" :style="{color: color}"></i>
+       <i :class="icon" class="iconfont  icon-drxx29" :style="{color:color,fontSize:fontSize}"></i>
        <div class="icon-text-t jx-test-over-hid" :title="text" v-text="text">
        </div>
     </div>
@@ -16,7 +16,10 @@
                 default:''
             },
             color : {
-                default:'#555'
+                default:'#55555'
+            },
+            fontSize : {
+                default:'35px'
             }
         },
         methods: {

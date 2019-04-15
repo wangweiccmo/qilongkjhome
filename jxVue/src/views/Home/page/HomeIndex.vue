@@ -3,7 +3,7 @@
         <div class="fu jx-box">
             <div class="jx-box-left">
                 <div class="fu jx-box-column">
-                    <div style="padding: 0px 5px 5px 10px;height: 200px">
+                    <div style="padding: 5px 5px 5px 10px;height: 200px">
                         <msg-center></msg-center>
                     </div>
                     <div class="jx-flex1" style="padding: 5px 5px 10px 10px">
@@ -13,7 +13,7 @@
             </div>
             <div class="jx-box-right">
                 <div class="fu jx-box-column">
-                    <div style="padding: 0px 10px 5px 5px;height: 200px">
+                    <div style="padding: 5px 10px 5px 5px;height: 200px">
                         <cmp-fast></cmp-fast>
                     </div>
                     <div class="jx-flex1" style="padding: 5px 10px 10px 5px">

@@ -29,7 +29,7 @@
                     <el-table
                             border
                             size="mini"
-                            :data="tableData"
+                            :data="dataList"
                             @selection-change="handleSelectionChange"
                             style="width: 100%">
                         <el-table-column
@@ -57,11 +57,11 @@
                                 label="英语名称"
                                 width="50">
                         </el-table-column>
-                        <el-table-snpm
+                        <el-table-column
                                 prop="point"
                                 label="学分"
                                 width="100">
-                        </el-table-snpm>
+                        </el-table-column>
                         <el-table-column
                                 prop="time"
                                 label="学时"
@@ -88,9 +88,8 @@
                                 label="操作"
                                 width="160">
                             <template slot-scope="scope">
-                                <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-                                <el-button type="text" size="small">编辑</el-button>
-                                <el-button type="text" size="small" style="color: red">删除</el-button>
+                                <el-button @click="info(scope.row)" type="text" size="small">查看</el-button>
+                                <el-button @click="del(scope.row)" type="text" size="small" style="color: red">删除</el-button>
                             </template>
                         </el-table-column>
                     </el-table>
@@ -99,29 +98,38 @@
                     <el-pagination
                             @size-change="handleSizeChange"
                             @current-change="handleCurrentChange"
-                            :current-page="currentPage"
+                            :current-page="page.page"
                             :page-sizes="[50, 100, 200, 500]"
-                            :page-size="50"
+                            :page-size="page.pageSize"
                             layout="total, sizes, prev, pager, next, jumper"
                             :total="total">
                     </el-pagination>
                 </el-row>
             </div>
         </div>
-        <AddCourseDialog :bindId="bindId" :dict="dict" :subjects="subjects" :checkedNode="checkedNode" :visible.sync="uploadResourceDialogShow">
+        <AddCourseDialog  @closed="uploadResourceDialogClose" :bindId="bindId" :dict="dict" :subjects="subjects" :checkedNode="checkedNode" :visible.sync="uploadResourceDialogShow">
 
         </AddCourseDialog>
+        <ComListCreateDialog
+                v-if="comListCreateDialogShow"
+                :httpApi="httpApi"
+                :id="id"
+                :mode="editMode"
+                :visible.sync="comListCreateDialogShow">
 
+        </ComListCreateDialog>
     </div>
 </template>
 
 <script>
     import CmpTree from '_cmp/CmpTree';
     import AddCourseDialog from '_cmp/dialog/AddCourseDialog';
-    import * as API_COURSE from '_api/api_course';
+    import editMixin from '_cmp/mixin/editMixin';
+    import API_COURSE from '_api/api_course';
 
     export default {
         name: "HomeBaseHome",
+        mixins:[editMixin],
         components: {CmpTree,AddCourseDialog},
         data() {
             return {
@@ -132,9 +140,9 @@
                     subject:[]
                 },
                 bindId: 3,
+                httpApi:API_COURSE,
                 currentPage: 1,
                 total:10,
-                tableData:[],
                 dict:{
                     resourceType:[],
                     resourceStandard:[],
@@ -156,13 +164,6 @@
                 };
                 this.getResourcesByPage();
             },
-            getResourcesByPage(){
-                let page = {page:1,pageSize:50};
-                this.$http.post(API_COURSE.selectByPage,page,this).then((res)=>{
-                    this.tableData = res.data;
-                    this.total = res.extend.total;
-                })
-            },
             handleSizeChange(val) {
                 console.log(`每页 ${val} 条`);
             },
@@ -171,6 +172,9 @@
             },
             handleSelectionChange(){
 
+            },
+            uploadResourceDialogClose(data){
+                console.log(data)
             },
             handleNodeClick(data, bindId,map) {
                 this.checkedNode = data;

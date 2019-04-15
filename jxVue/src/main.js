@@ -83,7 +83,9 @@ import './assets/css/base.css'
 Vue.use(ElementUI);
 
 import JxBreadcrumb from './components/ui/JxBreadcrumb.vue';
+import CmpHomeEcharts from '_cmp/CmpHomeEcharts.vue'
 Vue.component(JxBreadcrumb.name,JxBreadcrumb);
+Vue.component(CmpHomeEcharts.name,CmpHomeEcharts);
 
 Vue.config.productionTip = false;
 Vue.prototype.$http = $http;

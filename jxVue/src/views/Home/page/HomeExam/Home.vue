@@ -1,7 +1,11 @@
 <template>
     <div class="fu jx-l" style="padding: 0 10px">
         <JxBreadcrumb></JxBreadcrumb>
-        在线考试
+        <div>
+            <CmpHomeEcharts>
+
+            </CmpHomeEcharts>
+        </div>
     </div>
 </template>
 

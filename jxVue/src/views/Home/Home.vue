@@ -4,10 +4,10 @@
                     text-color="#fff"
                     active-text-color="#ffd04b"-->
         <div class="jx-header jx-box" >
-            <div style="width: 200px;background-color: yellow;height:60px;display: inline-block;line-height: 40px;padding-top: 5px;box-sizing: border-box">
+            <div style="width: 200px;height:60px;display: inline-block;line-height: 40px;padding-top: 5px;box-sizing: border-box;padding-left:20px ">
                 <img style="height:52px" src="../../assets/logo.png"/>
             </div>
-            <div>
+            <div style="width: 100%">
                 <el-menu
                         :default-active="activeIndex"
                         class="el-menu-demo"

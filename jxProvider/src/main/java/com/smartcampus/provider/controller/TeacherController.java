@@ -58,8 +58,7 @@ public class TeacherController {
 		PageSearchEntity pageSearchEntity = new PageSearchEntity(page,pageSize);
 		List<TeacherEntity> st1 = teacherService.selectByPage(pageSearchEntity);
 		int st2 = teacherService.count();
-		pageSearchEntity.setTotal(st2);
-		return new Rep(RepCode.OK,st1,pageSearchEntity);
+		return new Rep(RepCode.OK,st1,st2);
 	}
 
 	@ResponseBody

@@ -7,6 +7,7 @@
                 border
                 size="mini"
                 :data="treeList"
+                v-loading="isLoading"
                 style="width: 100%">
 
             <el-table-column
@@ -50,6 +51,7 @@
         data() {
 
             return {
+                isLoading:false,
                 treeList:[]
             }
         },

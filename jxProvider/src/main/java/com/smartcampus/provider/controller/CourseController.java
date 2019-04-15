@@ -26,43 +26,63 @@ public class CourseController {
 
 	@ResponseBody
 	@RequestMapping("/selectById")
-	public Rep selectById(@RequestBody Map<String,Object> reqMap) {
-		Integer id = Integer.valueOf(reqMap.get("id").toString());
-		CourseEntity courseEntity = courseService.selectById(id);
-		return new Rep(RepCode.OK,courseEntity);
-	}
-
-	@ResponseBody
-	@RequestMapping("/selectByCode")
-	public Rep selectByCode(@RequestBody Map<String,Object> reqMap) {
-		String code = reqMap.get("code").toString();
-		CourseEntity courseEntity = courseService.selectByCode(code);
-		return new Rep(RepCode.OK,courseEntity);
-	}
-
-	@ResponseBody
-	@RequestMapping("/selectByName")
-	public Rep selectByName(@RequestBody Map<String,Object> reqMap) {
-		String name = reqMap.get("name").toString();
-		CourseEntity courseEntity = courseService.selectByName(name);
-		return new Rep(RepCode.OK,courseEntity);
-	}
-
-	@ResponseBody
-	@RequestMapping("/insert")
-	public Rep selectByPage(@RequestBody CourseEntity courseEntity) {
-		int i = courseService.insert(courseEntity);
-		return new Rep(RepCode.OK,i);
+	public Rep selectById(@RequestBody CourseEntity CourseEntity) {
+		CourseEntity res = courseService.selectById(CourseEntity);
+		return new Rep(RepCode.OK,res);
 	}
 
 	@ResponseBody
 	@RequestMapping("/selectByPage")
-	public Rep selectByPage(@RequestBody Map<String,Object> reqMap){
-		String page = reqMap.get("page").toString();
-		String pageSize = reqMap.get("pageSize").toString();
-		System.out.println("firstRowIndex: " + page + ":" + pageSize);
-		PageSearchEntity pageSearchEntity = new PageSearchEntity(page,pageSize);
-		List<CourseEntity> courseEntitys = courseService.selectByPage(pageSearchEntity);
-		return new Rep(RepCode.OK,courseEntitys);
+	public Rep selectByPage(@RequestBody PageSearchEntity pageSearchEntity) {
+		List<CourseEntity> res = courseService.selectByPage(pageSearchEntity);
+		Integer count = courseService.count();
+		return new Rep(RepCode.OK,res,count);
+	}
+
+	@ResponseBody
+	@RequestMapping("/selectByConditionAndPage")
+	public Rep selectByConditionAndPage(@RequestBody PageSearchEntity pageSearchEntity) {
+		List<CourseEntity> res = courseService.selectByConditionAndPage(pageSearchEntity);
+		Integer count = courseService.count();
+		return new Rep(RepCode.OK,count);
+	}
+
+	@ResponseBody
+	@RequestMapping("/insert")
+	public Rep insert(@RequestBody CourseEntity CourseEntity) {
+		Integer res = courseService.insert(CourseEntity);
+		return new Rep(RepCode.OK,res);
+	}
+
+	@ResponseBody
+	@RequestMapping("/upStatus")
+	public Rep upStatus(@RequestBody CourseEntity CourseEntity) {
+		Integer res = courseService.upStatus(CourseEntity);
+		return new Rep(RepCode.OK,res);
+	}
+	@ResponseBody
+	@RequestMapping("/upPlan")
+	public Rep upPlan(@RequestBody CourseEntity CourseEntity) {
+		Integer res = courseService.upStatus(CourseEntity);
+		return new Rep(RepCode.OK,res);
+	}
+	@ResponseBody
+	@RequestMapping("/upTarget")
+	public Rep upTarget(@RequestBody CourseEntity CourseEntity) {
+		Integer res = courseService.upStatus(CourseEntity);
+		return new Rep(RepCode.OK,res);
+	}
+	@ResponseBody
+	@RequestMapping("/upAllById")
+	public Rep upAllById(@RequestBody CourseEntity CourseEntity) {
+		Integer res = courseService.upAllById(CourseEntity);
+		return new Rep(RepCode.OK,res);
+	}
+
+	@ResponseBody
+	@RequestMapping("/delById")
+	public Rep delById(@RequestBody CourseEntity CourseEntity) {
+		Integer res = courseService.delById(CourseEntity);
+		return new Rep(RepCode.OK,res);
 	}
 }
